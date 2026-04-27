@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+logs/
+artifacts/m0/*
+!artifacts/m0/.gitkeep
+
+.env
+.env.*
+
