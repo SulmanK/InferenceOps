@@ -100,6 +100,7 @@ Recommended default:
 - Start with Qwen because it has low setup friction and small models.
 - Treat Llama-family models as later comparison targets after the harness is stable.
 - Windows development can use WSL2, but the actual vLLM GPU run requires a compatible NVIDIA GPU. The current local WSL preflight sees a GTX 1060 with compute capability 6.1, which is below current vLLM NVIDIA wheel requirements, so Milestone 0 serving should run on a compatible cloud GPU or newer local GPU.
+- Since Lambda credits are available, Lambda Cloud is the primary Milestone 0 execution target. Prefer a single `A10` instance first, with `A6000` as the fallback if A10 capacity is unavailable.
 
 ### Milestone 1: Deterministic Trace Generation and Replay
 

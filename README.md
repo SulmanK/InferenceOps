@@ -26,9 +26,25 @@ Why vLLM:
 
 ## Milestone 0 Quickstart
 
-Milestone 0 is intended to run on a Linux host with an NVIDIA GPU.
+Milestone 0 is intended to run on a Linux host with a compatible NVIDIA GPU. Since you have Lambda credits, use Lambda first.
 
 See [design/milestone-0-execution-plan.md](design/milestone-0-execution-plan.md) for the recommended cloud GPU execution path.
+For Lambda specifically, see [deploy/lambda/README.md](deploy/lambda/README.md).
+
+On the Lambda GPU instance:
+
+```bash
+bash deploy/lambda/m0_lambda_bootstrap.sh
+bash deploy/vllm/m0_serve_vllm.sh
+```
+
+Then, in a second SSH session:
+
+```bash
+bash deploy/vllm/m0_benchmark_vllm.sh
+```
+
+The lower-level vLLM sequence is:
 
 ```bash
 bash deploy/vllm/m0_wsl_preflight.sh

@@ -2,6 +2,8 @@
 
 This directory contains the first serving backend workflow for InferenceOps.
 
+If you are using Lambda credits, start with [../lambda/README.md](../lambda/README.md). Lambda is the recommended Milestone 0 host because it provides a normal SSH Linux GPU VM.
+
 ## Backend Choice
 
 Milestone 0 uses vLLM because it is a production-oriented LLM serving platform with an OpenAI-compatible API and built-in benchmark tooling.
