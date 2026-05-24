@@ -1,5 +1,7 @@
 # Milestone 0 Execution Plan
 
+Status: complete. See `design/milestone-0-recap.md` and `design/milestone-0-run-report-20260524T194907Z.md` for the completed run summary.
+
 ## Decision
 
 Run Milestone 0 on a compatible Lambda Cloud Linux GPU instance, while keeping this Windows/WSL workspace as the source repo.
@@ -92,4 +94,3 @@ Do not start router work immediately after the first successful run. First:
 - commit the scripts, report, and one small summary artifact
 - keep large raw artifacts out of Git unless intentionally sampled
 - terminate the Lambda instance after copying artifacts back
-

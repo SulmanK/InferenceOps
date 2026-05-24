@@ -96,13 +96,14 @@ def summarize_gpu_csv(result_dir: Path, run_id: str | None) -> dict[str, Any]:
     with path.open("r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
+            normalized_row = {key.strip(): value for key, value in row.items()}
             for key, target in (
                 ("utilization.gpu [%]", gpu_utils),
                 ("memory.used [MiB]", mem_used),
                 ("power.draw [W]", power),
             ):
-                if key in row:
-                    parsed = parse_number(row[key])
+                if key in normalized_row:
+                    parsed = parse_number(normalized_row[key])
                     if parsed is not None:
                         target.append(parsed)
 
@@ -159,4 +160,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
