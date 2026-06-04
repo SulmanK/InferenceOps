@@ -57,3 +57,27 @@ python metrics/summarize_m0.py artifacts/m0
 The scripts default to `Qwen/Qwen2.5-1.5B-Instruct`, port `8000`, and API key `local-dev`.
 
 Generated artifacts are written under `artifacts/m0/`.
+
+## Milestone 1 Quickstart
+
+Milestone 1 adds deterministic trace generation and replay.
+
+```bash
+python replay/generate_trace_pack.py --out traces/pack_v1 --seed 42 --count 48
+python replay/validate_trace.py traces/pack_v1/*.jsonl
+python -m unittest
+```
+
+Once a vLLM server is running, replay a trace:
+
+```bash
+python replay/replay_trace.py --trace traces/pack_v1/shared_prefix_burst.jsonl --base-url http://127.0.0.1:8000
+```
+
+Replay the whole trace pack:
+
+```bash
+python replay/replay_trace_pack.py --manifest traces/pack_v1/manifest.json --base-url http://127.0.0.1:8000 --time-scale 1.0
+```
+
+See [design/milestone-1-execution-plan.md](design/milestone-1-execution-plan.md).

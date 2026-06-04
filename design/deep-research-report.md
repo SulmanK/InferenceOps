@@ -106,6 +106,8 @@ Recommended default:
 
 Goal: move from one-off benchmark commands to reproducible workload replay.
 
+Status: complete for `pack_v1`. `traces/pack_v1` exists, all JSONL traces validate, and all three scenarios have been replayed successfully against a real vLLM `/v1/chat/completions` endpoint.
+
 Done means:
 
 - Trace packs are versioned and replayable.

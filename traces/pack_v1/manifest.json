@@ -1,0 +1,26 @@
+{
+  "generator": "m1_trace_generator_v1",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "scenarios": [
+    {
+      "name": "shared_prefix_burst",
+      "path": "traces/pack_v1/shared_prefix_burst.jsonl",
+      "records": 48,
+      "sha256": "53b60a1de9d5ad49f03d12a54cabd11d3a8712b92d121f5dd266e05785c96b51"
+    },
+    {
+      "name": "mixed_short_long",
+      "path": "traces/pack_v1/mixed_short_long.jsonl",
+      "records": 48,
+      "sha256": "e36859f3b88791875b286b9f728dd3eb09910de42f421c33cdc8737e81af9026"
+    },
+    {
+      "name": "degraded_worker",
+      "path": "traces/pack_v1/degraded_worker.jsonl",
+      "records": 48,
+      "sha256": "9bc48f8527ec9fd89b54a117addd5212d9791fe1a1aec72fcc60c47601a893fc"
+    }
+  ],
+  "seed": 42,
+  "trace_pack": "pack_v1"
+}

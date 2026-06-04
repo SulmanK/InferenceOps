@@ -5,7 +5,8 @@ __pycache__/
 logs/
 artifacts/m0/*
 !artifacts/m0/.gitkeep
+artifacts/m1/replay/*
+!artifacts/m1/replay/.gitkeep
 
 .env
 .env.*
-
