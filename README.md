@@ -81,3 +81,15 @@ python replay/replay_trace_pack.py --manifest traces/pack_v1/manifest.json --bas
 ```
 
 See [design/milestone-1-execution-plan.md](design/milestone-1-execution-plan.md).
+
+## Milestone 2 Quickstart
+
+Milestone 2 runs two SGLang workers behind SGLang Model Gateway and replays `traces/pack_v1` through the gateway.
+
+```bash
+bash deploy/sglang/m2_setup_sglang.sh
+bash deploy/sglang/m2_start_workers.sh
+bash deploy/sglang/m2_run_policy_matrix.sh
+```
+
+See [design/milestone-2-execution-plan.md](design/milestone-2-execution-plan.md) and [design/milestone-2-purpose-sglang.md](design/milestone-2-purpose-sglang.md).

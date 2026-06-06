@@ -144,6 +144,10 @@ Minimum trace record fields:
 
 Goal: benchmark routing behavior with a real router in front of real workers.
 
+Purpose note: see `design/milestone-2-purpose-sglang.md` for the detailed explanation of why this milestone uses SGLang Model Gateway and what router behavior we want to measure.
+
+Status: completed for v0. See `design/milestone-2-recap.md` for the SGLang Gateway run summary.
+
 Done means:
 
 - SGLang Model Gateway fronts two small workers.
@@ -158,6 +162,8 @@ Milestone 2 is the first major proof point. Do not start Kubernetes, Ray Serve, 
 ### Milestone 3: Heuristic Controllers and Policy Comparison
 
 Goal: make control policy the benchmark target rather than only comparing built-in router modes.
+
+Status: started. The first pass adds offline policy normalization and bounded heuristic controller evaluation over the Milestone 2 replay artifacts. See `design/milestone-3-execution-plan.md` and `design/milestone-3-recap.md`.
 
 Done means:
 
