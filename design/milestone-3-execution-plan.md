@@ -45,7 +45,30 @@ python controllers/evaluate_m3_controllers.py \
 
 ## Next Live Step
 
-After offline evaluation, add a live controller runner that:
+The first live runner uses one bounded policy decision per scenario. It restarts SGLang Gateway only at scenario boundaries, which keeps control changes deterministic and avoids policy flapping.
+
+On the Lambda VM, with workers already running:
+
+```bash
+CONTROLLER=scenario_heuristic bash deploy/sglang/m3_run_live_controller.sh
+```
+
+Optional static baselines:
+
+```bash
+CONTROLLER=static_cache_aware bash deploy/sglang/m3_run_live_controller.sh
+CONTROLLER=static_power_of_two bash deploy/sglang/m3_run_live_controller.sh
+```
+
+Outputs:
+
+```text
+artifacts/m3/live/replay_results_<run_id>_<controller>_<scenario>.jsonl
+artifacts/m3/live/replay_summary_<run_id>_<controller>_<scenario>.json
+artifacts/m3/live/live_controller_summary_<run_id>_<controller>.json
+```
+
+After this, add a finer live controller runner that:
 
 - Starts SGLang Gateway with an initial policy.
 - Replays one trace segment.

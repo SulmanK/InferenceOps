@@ -56,7 +56,41 @@ The first heuristic is already close to the observed oracle on this trace pack. 
 
 ## Next Step
 
-The next Milestone 3 step should add a live controller runner:
+## Live Controller Run
+
+Run ID: `20260606T194927Z`
+
+Controller: `scenario_heuristic`
+
+Mode: live SGLang Gateway, one bounded policy decision per scenario.
+
+Actions:
+
+| Scenario | Selected Policy | Reason |
+|---|---|---|
+| `shared_prefix_burst` | `cache_aware` | prefer cache locality for repeated-prefix traffic |
+| `mixed_short_long` | `power_of_two` | protect short requests from long-prefill imbalance |
+| `degraded_worker` | `power_of_two` | prefer load-sensitive routing when a worker looks degraded |
+
+Results:
+
+| Scenario | Requests | Failed | P50 ms | P95 ms | P99 ms | Duration s |
+|---|---:|---:|---:|---:|---:|---:|
+| `shared_prefix_burst` | 48 | 0 | 168.21 | 197.93 | 200.60 | 13.19 |
+| `mixed_short_long` | 48 | 0 | 149.29 | 293.51 | 298.59 | 31.36 |
+| `degraded_worker` | 48 | 0 | 183.45 | 196.58 | 196.88 | 29.12 |
+
+Live artifacts were copied locally to:
+
+```text
+C:\tmp\InferenceOps-m3-live
+```
+
+The live run proves the controller path can control a real SGLang Gateway with finite actions and deterministic scenario boundaries.
+
+## Next Step
+
+The next Milestone 3 step should add a finer live controller runner:
 
 - Start Gateway with an initial policy.
 - Replay trace segments.
