@@ -2,19 +2,21 @@
 
 ## What Was Added
 
-Milestone 3 now has an offline controller evaluation layer on top of the Milestone 2 SGLang Gateway results.
+Milestone 3 now has offline controller evaluation and a live bounded-controller path on top of the Milestone 2 SGLang Gateway benchmark.
 
 New source files:
 
 - `metrics/compare_m2_policies.py`
 - `controllers/policies.py`
 - `controllers/evaluate_m3_controllers.py`
+- `controllers/run_live_controller.py`
+- `deploy/sglang/m3_run_live_controller.sh`
 - `tests/test_controllers.py`
 - `design/milestone-3-execution-plan.md`
 
-## Current Scope
+## Scope
 
-This first pass is deterministic and offline. It does not yet mutate a live SGLang Gateway during replay.
+Milestone 3 v0 is complete. It includes deterministic offline scoring plus a live SGLang Gateway run with one bounded policy decision per scenario.
 
 The bounded action space is:
 
@@ -54,8 +56,6 @@ Metric: p95 latency regret against the best observed policy for each scenario.
 
 The first heuristic is already close to the observed oracle on this trace pack. The degraded-worker scenario chose `power_of_two`, while the best observed p95 was narrowly `cache_aware` by `0.21 ms`, which is likely within run noise and should be retested before drawing a strong conclusion.
 
-## Next Step
-
 ## Live Controller Run
 
 Run ID: `20260606T194927Z`
@@ -88,9 +88,23 @@ C:\tmp\InferenceOps-m3-live
 
 The live run proves the controller path can control a real SGLang Gateway with finite actions and deterministic scenario boundaries.
 
-## Next Step
+## Closeout
 
-The next Milestone 3 step should add a finer live controller runner:
+Milestone 3 v0 is closed.
+
+Done:
+
+- Static policy baselines were implemented.
+- A heuristic controller was implemented.
+- Controller actions are bounded and validated.
+- Offline controller evaluation compared choices against observed Milestone 2 policy results.
+- A live controller run controlled real SGLang Gateway policy selection at scenario boundaries.
+- Action history and replay summaries were captured.
+- Live run completed 144 requests with 0 failures.
+
+## Future Work
+
+Future Milestone 3 extensions, if needed:
 
 - Start Gateway with an initial policy.
 - Replay trace segments.

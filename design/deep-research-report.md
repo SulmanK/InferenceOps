@@ -163,7 +163,7 @@ Milestone 2 is the first major proof point. Do not start Kubernetes, Ray Serve, 
 
 Goal: make control policy the benchmark target rather than only comparing built-in router modes.
 
-Status: started. The first pass adds offline policy normalization and bounded heuristic controller evaluation over the Milestone 2 replay artifacts. See `design/milestone-3-execution-plan.md` and `design/milestone-3-recap.md`.
+Status: completed for v0. The milestone includes offline policy normalization, bounded heuristic controller evaluation, and a live SGLang Gateway controller run with one policy decision per scenario. See `design/milestone-3-execution-plan.md` and `design/milestone-3-recap.md`.
 
 Done means:
 
