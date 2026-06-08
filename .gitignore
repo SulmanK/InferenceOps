@@ -16,6 +16,8 @@ artifacts/m4/*
 !artifacts/m4/.gitkeep
 artifacts/m5/*
 !artifacts/m5/.gitkeep
+artifacts/m6/*
+!artifacts/m6/.gitkeep
 
 .env
 .env.*
