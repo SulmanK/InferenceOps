@@ -36,13 +36,13 @@ Implemented controllers:
 
 Source Milestone 2 run: `20260606T192505Z`
 
-Temporary verification outputs were written to:
+Verification outputs are stored in:
 
 ```text
-C:\tmp\InferenceOps-m3
+artifacts/m3/offline-eval
 ```
 
-The repo artifact directory had a Windows path issue when creating new subdirectories from Python, so verification output was kept in `C:\tmp` for now. The source code and design docs are in the repo.
+These files were originally generated under `C:\tmp\InferenceOps-m3` and later copied into the repo artifact tree.
 
 ## Initial Controller Result
 
@@ -80,10 +80,10 @@ Results:
 | `mixed_short_long` | 48 | 0 | 149.29 | 293.51 | 298.59 | 31.36 |
 | `degraded_worker` | 48 | 0 | 183.45 | 196.58 | 196.88 | 29.12 |
 
-Live artifacts were copied locally to:
+Live artifacts are stored in:
 
 ```text
-C:\tmp\InferenceOps-m3-live
+artifacts/m3/live-controller
 ```
 
 The live run proves the controller path can control a real SGLang Gateway with finite actions and deterministic scenario boundaries.

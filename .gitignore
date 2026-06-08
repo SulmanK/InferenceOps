@@ -10,6 +10,10 @@ artifacts/m1/replay/*
 artifacts/m2/replay/*
 !artifacts/m2/replay/.gitkeep
 artifacts/m2/metadata_*.json
+artifacts/m3/*
+!artifacts/m3/.gitkeep
+artifacts/m4/*
+!artifacts/m4/.gitkeep
 artifacts/m5/*
 !artifacts/m5/.gitkeep
 

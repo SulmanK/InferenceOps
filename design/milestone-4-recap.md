@@ -39,7 +39,7 @@ Agent mode: `scripted`
 Artifacts:
 
 ```text
-C:\tmp\InferenceOps-m4
+artifacts/m4/offline-agentic
 ```
 
 Results:
@@ -61,7 +61,7 @@ Agent mode: `openai-compatible`
 Artifacts:
 
 ```text
-C:\tmp\InferenceOps-m4
+artifacts/m4/offline-agentic
 ```
 
 Results:

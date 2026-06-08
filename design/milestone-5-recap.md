@@ -81,13 +81,13 @@ Total:
 
 ## Artifacts
 
-Artifacts were copied locally to:
+Artifacts are stored in:
 
 ```text
-C:\tmp\InferenceOps-m5
+artifacts/m5/k3s-vllm-stack
 ```
 
-Remote artifact paths:
+Original remote artifact paths:
 
 ```text
 artifacts/m5/
@@ -126,4 +126,3 @@ Done:
 - Deterministic trace pack replay completed.
 - Kubernetes logs, manifests, state, and replay artifacts were captured.
 - Setup friction and required GPU fixes were documented.
-
