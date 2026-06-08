@@ -93,3 +93,20 @@ bash deploy/sglang/m2_run_policy_matrix.sh
 ```
 
 See [design/milestone-2-execution-plan.md](design/milestone-2-execution-plan.md) and [design/milestone-2-purpose-sglang.md](design/milestone-2-purpose-sglang.md).
+
+## Milestone 5 Quickstart
+
+Milestone 5 deploys vLLM Production Stack on a single GPU VM using k3s.
+
+```bash
+bash deploy/k3s-vllm-stack/m5_00_preflight.sh
+bash deploy/k3s-vllm-stack/m5_01_install_k3s_gpu.sh
+bash deploy/k3s-vllm-stack/m5_02_install_helm_device_plugin.sh
+bash deploy/k3s-vllm-stack/m5_03_validate_gpu_pod.sh
+bash deploy/k3s-vllm-stack/m5_04_install_vllm_stack.sh
+bash deploy/k3s-vllm-stack/m5_05_port_forward.sh
+bash deploy/k3s-vllm-stack/m5_06_replay_trace_pack.sh
+bash deploy/k3s-vllm-stack/m5_07_collect_state.sh
+```
+
+See [design/milestone-5-execution-plan.md](design/milestone-5-execution-plan.md) and [deploy/k3s-vllm-stack/README.md](deploy/k3s-vllm-stack/README.md).

@@ -10,6 +10,8 @@ artifacts/m1/replay/*
 artifacts/m2/replay/*
 !artifacts/m2/replay/.gitkeep
 artifacts/m2/metadata_*.json
+artifacts/m5/*
+!artifacts/m5/.gitkeep
 
 .env
 .env.*

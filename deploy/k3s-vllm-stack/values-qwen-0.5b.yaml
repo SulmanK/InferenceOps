@@ -1,0 +1,16 @@
+servingEngineSpec:
+  runtimeClassName: "nvidia"
+  modelSpec:
+    - name: "qwen05b"
+      repository: "vllm/vllm-openai"
+      tag: "latest"
+      modelURL: "Qwen/Qwen2.5-0.5B-Instruct"
+      replicaCount: 1
+      requestCPU: 4
+      requestMemory: "16Gi"
+      requestGPU: 1
+      requestGPUType: "nvidia.com/gpu"
+      pvcStorage: "20Gi"
+      vllmConfig:
+        maxModelLen: 4096
+        gpuMemoryUtilization: 0.85

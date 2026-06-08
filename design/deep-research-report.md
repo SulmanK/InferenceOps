@@ -183,6 +183,8 @@ Useful initial heuristic:
 
 Goal: evaluate whether an LLM-based controller can make useful bounded decisions after strong non-agentic baselines exist.
 
+Status: completed for offline v0. The milestone adds a strict JSON action contract, deterministic scripted-agent evaluation, and OpenAI-compatible agent evaluation. The real agent produced valid bounded actions with zero fallback and matched the best observed policy across the current three scenarios. See `design/milestone-4-execution-plan.md` and `design/milestone-4-recap.md`.
+
 Done means:
 
 - The agent has the same observation interface as other controllers.
@@ -193,19 +195,46 @@ Done means:
 
 The agentic controller is not required for the first credible benchmark. If it performs worse than heuristics, that is still a valid benchmark result.
 
-### Milestone 5: Optional Advanced Systems Track
+### Milestone 5: vLLM Production Stack on Single-Node k3s
 
-Goal: add one advanced serving-system feature after the core benchmark is stable.
+Goal: add production-style Kubernetes deployment experience without turning the project into a full platform-engineering buildout.
 
-Potential tracks:
+Track choice: vLLM Production Stack on a single Lambda GPU VM running k3s.
 
-- Ray Serve LLM for distributed orchestration and observability.
-- vLLM Production Stack for Kubernetes, KV-aware routing, tracing, autoscaling, or shared KV cache.
-- Dynamo for disaggregation, KV-aware routing, and systems-level control-plane design.
-- Prefill/decode disaggregation experiments.
-- Shared KV or cache-budget experiments.
+Status: completed for v0. See `design/milestone-5-recap.md`.
 
-Pick one track at a time. This milestone should not become a rewrite of the core benchmark.
+Why this track:
+
+- vLLM has strong industry demand and connects directly to the Milestone 0 baseline.
+- k3s gives real Kubernetes, Helm, Services, Pods, GPU scheduling, logs, and metrics with lower setup cost than a managed cluster.
+- The output is a credible MLOps/platform artifact without requiring multi-node infrastructure.
+
+Done means:
+
+- A single GPU VM runs k3s.
+- NVIDIA GPU access works inside Kubernetes.
+- vLLM Production Stack is deployed with Helm or documented manifests.
+- A Qwen model endpoint is reachable through a Kubernetes Service.
+- `traces/pack_v1` is replayed against the endpoint.
+- Logs, metrics endpoints, manifests, setup friction, cost notes, and replay artifacts are captured.
+- The report compares this path against Milestone 0 single-process vLLM and Milestone 2 SGLang Gateway.
+
+### Milestone 6: vLLM Production Stack Scaling Experiment
+
+Goal: demonstrate an industry-style scaling path by running vLLM Production Stack with multiple serving replicas across multiple GPU nodes.
+
+Preferred track: two Lambda GPU VMs joined into one k3s cluster, with vLLM Production Stack routing to two vLLM serving replicas.
+
+Done means:
+
+- Two GPU nodes are Ready in one k3s cluster.
+- Both nodes advertise `nvidia.com/gpu`.
+- vLLM Production Stack deploys two serving replicas.
+- The router service responds to `/v1/models`.
+- Normal and pressure replay runs complete through the router.
+- The report compares one-replica vs two-replica throughput, p95 latency, GPU utilization, cost, and bottlenecks.
+
+This milestone is a better scaling signal than a simple managed-Kubernetes portability check. Managed Kubernetes can remain a later portability exercise if needed.
 
 ## Benchmark Scenarios
 
